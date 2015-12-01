@@ -1,0 +1,581 @@
+Classic Timing Analyzer report for DP
+Wed Nov 18 01:28:50 2015
+Quartus II Version 8.1 Build 163 10/28/2008 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Timing Analyzer Summary
+  3. Timing Analyzer Settings
+  4. Clock Settings Summary
+  5. Clock Setup: 'Clock'
+  6. tsu
+  7. tco
+  8. th
+  9. Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2008 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Summary                                                                                                                                                                                                                                                                                                      ;
++------------------------------+-------+---------------+----------------------------------+-------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------+------------+----------+--------------+
+; Type                         ; Slack ; Required Time ; Actual Time                      ; From                                                                                            ; To                                                                                        ; From Clock ; To Clock ; Failed Paths ;
++------------------------------+-------+---------------+----------------------------------+-------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------+------------+----------+--------------+
+; Worst-case tsu               ; N/A   ; None          ; 7.122 ns                         ; Sub                                                                                             ; nBitsRegister:Areg|Q[4]                                                                   ; --         ; Clock    ; 0            ;
+; Worst-case tco               ; N/A   ; None          ; 9.414 ns                         ; nBitsRegister:Areg|Q[4]                                                                         ; Aeq0                                                                                      ; Clock      ; --       ; 0            ;
+; Worst-case th                ; N/A   ; None          ; -3.745 ns                        ; MemWr                                                                                           ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~porta_we_reg ; --         ; Clock    ; 0            ;
+; Clock Setup: 'Clock'         ; N/A   ; None          ; 130.99 MHz ( period = 7.634 ns ) ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg4 ; nBitsRegister:Areg|Q[4]                                                                   ; Clock      ; Clock    ; 0            ;
+; Total number of failed paths ;       ;               ;                                  ;                                                                                                 ;                                                                                           ;            ;          ; 0            ;
++------------------------------+-------+---------------+----------------------------------+-------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------+------------+----------+--------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Settings                                                                                           ;
++---------------------------------------------------------------------+--------------------+------+----+-------------+
+; Option                                                              ; Setting            ; From ; To ; Entity Name ;
++---------------------------------------------------------------------+--------------------+------+----+-------------+
+; Device Name                                                         ; EP2C20F484C7       ;      ;    ;             ;
+; Timing Models                                                       ; Final              ;      ;    ;             ;
+; Default hold multicycle                                             ; Same as Multicycle ;      ;    ;             ;
+; Cut paths between unrelated clock domains                           ; On                 ;      ;    ;             ;
+; Cut off read during write signal paths                              ; On                 ;      ;    ;             ;
+; Cut off feedback from I/O pins                                      ; On                 ;      ;    ;             ;
+; Report Combined Fast/Slow Timing                                    ; Off                ;      ;    ;             ;
+; Ignore Clock Settings                                               ; Off                ;      ;    ;             ;
+; Analyze latches as synchronous elements                             ; On                 ;      ;    ;             ;
+; Enable Recovery/Removal analysis                                    ; Off                ;      ;    ;             ;
+; Enable Clock Latency                                                ; Off                ;      ;    ;             ;
+; Use TimeQuest Timing Analyzer                                       ; Off                ;      ;    ;             ;
+; Minimum Core Junction Temperature                                   ; 0                  ;      ;    ;             ;
+; Maximum Core Junction Temperature                                   ; 85                 ;      ;    ;             ;
+; Number of source nodes to report per destination node               ; 10                 ;      ;    ;             ;
+; Number of destination nodes to report                               ; 10                 ;      ;    ;             ;
+; Number of paths to report                                           ; 200                ;      ;    ;             ;
+; Report Minimum Timing Checks                                        ; Off                ;      ;    ;             ;
+; Use Fast Timing Models                                              ; Off                ;      ;    ;             ;
+; Report IO Paths Separately                                          ; Off                ;      ;    ;             ;
+; Perform Multicorner Analysis                                        ; On                 ;      ;    ;             ;
+; Reports the worst-case path for each clock domain and analysis      ; Off                ;      ;    ;             ;
+; Removes common clock path pessimism (CCPP) during slack computation ; Off                ;      ;    ;             ;
+; Output I/O Timing Endpoint                                          ; Near End           ;      ;    ;             ;
++---------------------------------------------------------------------+--------------------+------+----+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Settings Summary                                                                                                                                                             ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+; Clock Node Name ; Clock Setting Name ; Type     ; Fmax Requirement ; Early Latency ; Late Latency ; Based on ; Multiply Base Fmax by ; Divide Base Fmax by ; Offset ; Phase offset ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+; Clock           ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Setup: 'Clock'                                                                                                                                                                                                                                                                                                                                                   ;
++-------+------------------------------------------------+-------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; Slack ; Actual fmax (period)                           ; From                                                                                            ; To                                                                                              ; From Clock ; To Clock ; Required Setup Relationship ; Required Longest P2P Time ; Actual Longest P2P Time ;
++-------+------------------------------------------------+-------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; N/A   ; 130.99 MHz ( period = 7.634 ns )               ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg0 ; nBitsRegister:Areg|Q[4]                                                                         ; Clock      ; Clock    ; None                        ; None                      ; 7.318 ns                ;
+; N/A   ; 130.99 MHz ( period = 7.634 ns )               ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg1 ; nBitsRegister:Areg|Q[4]                                                                         ; Clock      ; Clock    ; None                        ; None                      ; 7.318 ns                ;
+; N/A   ; 130.99 MHz ( period = 7.634 ns )               ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg2 ; nBitsRegister:Areg|Q[4]                                                                         ; Clock      ; Clock    ; None                        ; None                      ; 7.318 ns                ;
+; N/A   ; 130.99 MHz ( period = 7.634 ns )               ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg3 ; nBitsRegister:Areg|Q[4]                                                                         ; Clock      ; Clock    ; None                        ; None                      ; 7.318 ns                ;
+; N/A   ; 130.99 MHz ( period = 7.634 ns )               ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg4 ; nBitsRegister:Areg|Q[4]                                                                         ; Clock      ; Clock    ; None                        ; None                      ; 7.318 ns                ;
+; N/A   ; 131.29 MHz ( period = 7.617 ns )               ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg0 ; nBitsRegister:Areg|Q[6]                                                                         ; Clock      ; Clock    ; None                        ; None                      ; 7.302 ns                ;
+; N/A   ; 131.29 MHz ( period = 7.617 ns )               ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg1 ; nBitsRegister:Areg|Q[6]                                                                         ; Clock      ; Clock    ; None                        ; None                      ; 7.302 ns                ;
+; N/A   ; 131.29 MHz ( period = 7.617 ns )               ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg2 ; nBitsRegister:Areg|Q[6]                                                                         ; Clock      ; Clock    ; None                        ; None                      ; 7.302 ns                ;
+; N/A   ; 131.29 MHz ( period = 7.617 ns )               ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg3 ; nBitsRegister:Areg|Q[6]                                                                         ; Clock      ; Clock    ; None                        ; None                      ; 7.302 ns                ;
+; N/A   ; 131.29 MHz ( period = 7.617 ns )               ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg4 ; nBitsRegister:Areg|Q[6]                                                                         ; Clock      ; Clock    ; None                        ; None                      ; 7.302 ns                ;
+; N/A   ; 134.66 MHz ( period = 7.426 ns )               ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg0 ; nBitsRegister:Areg|Q[5]                                                                         ; Clock      ; Clock    ; None                        ; None                      ; 7.111 ns                ;
+; N/A   ; 134.66 MHz ( period = 7.426 ns )               ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg1 ; nBitsRegister:Areg|Q[5]                                                                         ; Clock      ; Clock    ; None                        ; None                      ; 7.111 ns                ;
+; N/A   ; 134.66 MHz ( period = 7.426 ns )               ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg2 ; nBitsRegister:Areg|Q[5]                                                                         ; Clock      ; Clock    ; None                        ; None                      ; 7.111 ns                ;
+; N/A   ; 134.66 MHz ( period = 7.426 ns )               ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg3 ; nBitsRegister:Areg|Q[5]                                                                         ; Clock      ; Clock    ; None                        ; None                      ; 7.111 ns                ;
+; N/A   ; 134.66 MHz ( period = 7.426 ns )               ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg4 ; nBitsRegister:Areg|Q[5]                                                                         ; Clock      ; Clock    ; None                        ; None                      ; 7.111 ns                ;
+; N/A   ; 136.72 MHz ( period = 7.314 ns )               ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg0 ; nBitsRegister:Areg|Q[7]                                                                         ; Clock      ; Clock    ; None                        ; None                      ; 6.998 ns                ;
+; N/A   ; 136.72 MHz ( period = 7.314 ns )               ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg1 ; nBitsRegister:Areg|Q[7]                                                                         ; Clock      ; Clock    ; None                        ; None                      ; 6.998 ns                ;
+; N/A   ; 136.72 MHz ( period = 7.314 ns )               ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg2 ; nBitsRegister:Areg|Q[7]                                                                         ; Clock      ; Clock    ; None                        ; None                      ; 6.998 ns                ;
+; N/A   ; 136.72 MHz ( period = 7.314 ns )               ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg3 ; nBitsRegister:Areg|Q[7]                                                                         ; Clock      ; Clock    ; None                        ; None                      ; 6.998 ns                ;
+; N/A   ; 136.72 MHz ( period = 7.314 ns )               ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg4 ; nBitsRegister:Areg|Q[7]                                                                         ; Clock      ; Clock    ; None                        ; None                      ; 6.998 ns                ;
+; N/A   ; 139.43 MHz ( period = 7.172 ns )               ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg0 ; nBitsRegister:Areg|Q[3]                                                                         ; Clock      ; Clock    ; None                        ; None                      ; 6.856 ns                ;
+; N/A   ; 139.43 MHz ( period = 7.172 ns )               ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg1 ; nBitsRegister:Areg|Q[3]                                                                         ; Clock      ; Clock    ; None                        ; None                      ; 6.856 ns                ;
+; N/A   ; 139.43 MHz ( period = 7.172 ns )               ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg2 ; nBitsRegister:Areg|Q[3]                                                                         ; Clock      ; Clock    ; None                        ; None                      ; 6.856 ns                ;
+; N/A   ; 139.43 MHz ( period = 7.172 ns )               ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg3 ; nBitsRegister:Areg|Q[3]                                                                         ; Clock      ; Clock    ; None                        ; None                      ; 6.856 ns                ;
+; N/A   ; 139.43 MHz ( period = 7.172 ns )               ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg4 ; nBitsRegister:Areg|Q[3]                                                                         ; Clock      ; Clock    ; None                        ; None                      ; 6.856 ns                ;
+; N/A   ; 141.46 MHz ( period = 7.069 ns )               ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg0 ; nBitsRegister:Areg|Q[2]                                                                         ; Clock      ; Clock    ; None                        ; None                      ; 6.753 ns                ;
+; N/A   ; 141.46 MHz ( period = 7.069 ns )               ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg1 ; nBitsRegister:Areg|Q[2]                                                                         ; Clock      ; Clock    ; None                        ; None                      ; 6.753 ns                ;
+; N/A   ; 141.46 MHz ( period = 7.069 ns )               ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg2 ; nBitsRegister:Areg|Q[2]                                                                         ; Clock      ; Clock    ; None                        ; None                      ; 6.753 ns                ;
+; N/A   ; 141.46 MHz ( period = 7.069 ns )               ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg3 ; nBitsRegister:Areg|Q[2]                                                                         ; Clock      ; Clock    ; None                        ; None                      ; 6.753 ns                ;
+; N/A   ; 141.46 MHz ( period = 7.069 ns )               ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg4 ; nBitsRegister:Areg|Q[2]                                                                         ; Clock      ; Clock    ; None                        ; None                      ; 6.753 ns                ;
+; N/A   ; 144.86 MHz ( period = 6.903 ns )               ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg0 ; nBitsRegister:Areg|Q[1]                                                                         ; Clock      ; Clock    ; None                        ; None                      ; 6.587 ns                ;
+; N/A   ; 144.86 MHz ( period = 6.903 ns )               ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg1 ; nBitsRegister:Areg|Q[1]                                                                         ; Clock      ; Clock    ; None                        ; None                      ; 6.587 ns                ;
+; N/A   ; 144.86 MHz ( period = 6.903 ns )               ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg2 ; nBitsRegister:Areg|Q[1]                                                                         ; Clock      ; Clock    ; None                        ; None                      ; 6.587 ns                ;
+; N/A   ; 144.86 MHz ( period = 6.903 ns )               ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg3 ; nBitsRegister:Areg|Q[1]                                                                         ; Clock      ; Clock    ; None                        ; None                      ; 6.587 ns                ;
+; N/A   ; 144.86 MHz ( period = 6.903 ns )               ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg4 ; nBitsRegister:Areg|Q[1]                                                                         ; Clock      ; Clock    ; None                        ; None                      ; 6.587 ns                ;
+; N/A   ; 154.58 MHz ( period = 6.469 ns )               ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg0 ; nBitsRegister:Areg|Q[0]                                                                         ; Clock      ; Clock    ; None                        ; None                      ; 6.153 ns                ;
+; N/A   ; 154.58 MHz ( period = 6.469 ns )               ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg1 ; nBitsRegister:Areg|Q[0]                                                                         ; Clock      ; Clock    ; None                        ; None                      ; 6.153 ns                ;
+; N/A   ; 154.58 MHz ( period = 6.469 ns )               ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg2 ; nBitsRegister:Areg|Q[0]                                                                         ; Clock      ; Clock    ; None                        ; None                      ; 6.153 ns                ;
+; N/A   ; 154.58 MHz ( period = 6.469 ns )               ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg3 ; nBitsRegister:Areg|Q[0]                                                                         ; Clock      ; Clock    ; None                        ; None                      ; 6.153 ns                ;
+; N/A   ; 154.58 MHz ( period = 6.469 ns )               ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg4 ; nBitsRegister:Areg|Q[0]                                                                         ; Clock      ; Clock    ; None                        ; None                      ; 6.153 ns                ;
+; N/A   ; 193.12 MHz ( period = 5.178 ns )               ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg0 ; nBitsRegister:IRreg|Q[4]                                                                        ; Clock      ; Clock    ; None                        ; None                      ; 4.869 ns                ;
+; N/A   ; 193.12 MHz ( period = 5.178 ns )               ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg1 ; nBitsRegister:IRreg|Q[4]                                                                        ; Clock      ; Clock    ; None                        ; None                      ; 4.869 ns                ;
+; N/A   ; 193.12 MHz ( period = 5.178 ns )               ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg2 ; nBitsRegister:IRreg|Q[4]                                                                        ; Clock      ; Clock    ; None                        ; None                      ; 4.869 ns                ;
+; N/A   ; 193.12 MHz ( period = 5.178 ns )               ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg3 ; nBitsRegister:IRreg|Q[4]                                                                        ; Clock      ; Clock    ; None                        ; None                      ; 4.869 ns                ;
+; N/A   ; 193.12 MHz ( period = 5.178 ns )               ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg4 ; nBitsRegister:IRreg|Q[4]                                                                        ; Clock      ; Clock    ; None                        ; None                      ; 4.869 ns                ;
+; N/A   ; 193.24 MHz ( period = 5.175 ns )               ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg0 ; nBitsRegister:IRreg|Q[2]                                                                        ; Clock      ; Clock    ; None                        ; None                      ; 4.866 ns                ;
+; N/A   ; 193.24 MHz ( period = 5.175 ns )               ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg1 ; nBitsRegister:IRreg|Q[2]                                                                        ; Clock      ; Clock    ; None                        ; None                      ; 4.866 ns                ;
+; N/A   ; 193.24 MHz ( period = 5.175 ns )               ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg2 ; nBitsRegister:IRreg|Q[2]                                                                        ; Clock      ; Clock    ; None                        ; None                      ; 4.866 ns                ;
+; N/A   ; 193.24 MHz ( period = 5.175 ns )               ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg3 ; nBitsRegister:IRreg|Q[2]                                                                        ; Clock      ; Clock    ; None                        ; None                      ; 4.866 ns                ;
+; N/A   ; 193.24 MHz ( period = 5.175 ns )               ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg4 ; nBitsRegister:IRreg|Q[2]                                                                        ; Clock      ; Clock    ; None                        ; None                      ; 4.866 ns                ;
+; N/A   ; 193.50 MHz ( period = 5.168 ns )               ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg0 ; nBitsRegister:IRreg|Q[1]                                                                        ; Clock      ; Clock    ; None                        ; None                      ; 4.859 ns                ;
+; N/A   ; 193.50 MHz ( period = 5.168 ns )               ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg1 ; nBitsRegister:IRreg|Q[1]                                                                        ; Clock      ; Clock    ; None                        ; None                      ; 4.859 ns                ;
+; N/A   ; 193.50 MHz ( period = 5.168 ns )               ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg2 ; nBitsRegister:IRreg|Q[1]                                                                        ; Clock      ; Clock    ; None                        ; None                      ; 4.859 ns                ;
+; N/A   ; 193.50 MHz ( period = 5.168 ns )               ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg3 ; nBitsRegister:IRreg|Q[1]                                                                        ; Clock      ; Clock    ; None                        ; None                      ; 4.859 ns                ;
+; N/A   ; 193.50 MHz ( period = 5.168 ns )               ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg4 ; nBitsRegister:IRreg|Q[1]                                                                        ; Clock      ; Clock    ; None                        ; None                      ; 4.859 ns                ;
+; N/A   ; 203.75 MHz ( period = 4.908 ns )               ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg0 ; nBitsRegister:IRreg|Q[0]                                                                        ; Clock      ; Clock    ; None                        ; None                      ; 4.599 ns                ;
+; N/A   ; 203.75 MHz ( period = 4.908 ns )               ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg1 ; nBitsRegister:IRreg|Q[0]                                                                        ; Clock      ; Clock    ; None                        ; None                      ; 4.599 ns                ;
+; N/A   ; 203.75 MHz ( period = 4.908 ns )               ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg2 ; nBitsRegister:IRreg|Q[0]                                                                        ; Clock      ; Clock    ; None                        ; None                      ; 4.599 ns                ;
+; N/A   ; 203.75 MHz ( period = 4.908 ns )               ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg3 ; nBitsRegister:IRreg|Q[0]                                                                        ; Clock      ; Clock    ; None                        ; None                      ; 4.599 ns                ;
+; N/A   ; 203.75 MHz ( period = 4.908 ns )               ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg4 ; nBitsRegister:IRreg|Q[0]                                                                        ; Clock      ; Clock    ; None                        ; None                      ; 4.599 ns                ;
+; N/A   ; 211.60 MHz ( period = 4.726 ns )               ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg0 ; nBitsRegister:IRreg|Q[7]                                                                        ; Clock      ; Clock    ; None                        ; None                      ; 4.417 ns                ;
+; N/A   ; 211.60 MHz ( period = 4.726 ns )               ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg1 ; nBitsRegister:IRreg|Q[7]                                                                        ; Clock      ; Clock    ; None                        ; None                      ; 4.417 ns                ;
+; N/A   ; 211.60 MHz ( period = 4.726 ns )               ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg2 ; nBitsRegister:IRreg|Q[7]                                                                        ; Clock      ; Clock    ; None                        ; None                      ; 4.417 ns                ;
+; N/A   ; 211.60 MHz ( period = 4.726 ns )               ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg3 ; nBitsRegister:IRreg|Q[7]                                                                        ; Clock      ; Clock    ; None                        ; None                      ; 4.417 ns                ;
+; N/A   ; 211.60 MHz ( period = 4.726 ns )               ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg4 ; nBitsRegister:IRreg|Q[7]                                                                        ; Clock      ; Clock    ; None                        ; None                      ; 4.417 ns                ;
+; N/A   ; 217.06 MHz ( period = 4.607 ns )               ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg0 ; nBitsRegister:IRreg|Q[3]                                                                        ; Clock      ; Clock    ; None                        ; None                      ; 4.298 ns                ;
+; N/A   ; 217.06 MHz ( period = 4.607 ns )               ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg1 ; nBitsRegister:IRreg|Q[3]                                                                        ; Clock      ; Clock    ; None                        ; None                      ; 4.298 ns                ;
+; N/A   ; 217.06 MHz ( period = 4.607 ns )               ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg2 ; nBitsRegister:IRreg|Q[3]                                                                        ; Clock      ; Clock    ; None                        ; None                      ; 4.298 ns                ;
+; N/A   ; 217.06 MHz ( period = 4.607 ns )               ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg3 ; nBitsRegister:IRreg|Q[3]                                                                        ; Clock      ; Clock    ; None                        ; None                      ; 4.298 ns                ;
+; N/A   ; 217.06 MHz ( period = 4.607 ns )               ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg4 ; nBitsRegister:IRreg|Q[3]                                                                        ; Clock      ; Clock    ; None                        ; None                      ; 4.298 ns                ;
+; N/A   ; 223.41 MHz ( period = 4.476 ns )               ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg0 ; nBitsRegister:IRreg|Q[6]                                                                        ; Clock      ; Clock    ; None                        ; None                      ; 4.167 ns                ;
+; N/A   ; 223.41 MHz ( period = 4.476 ns )               ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg1 ; nBitsRegister:IRreg|Q[6]                                                                        ; Clock      ; Clock    ; None                        ; None                      ; 4.167 ns                ;
+; N/A   ; 223.41 MHz ( period = 4.476 ns )               ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg2 ; nBitsRegister:IRreg|Q[6]                                                                        ; Clock      ; Clock    ; None                        ; None                      ; 4.167 ns                ;
+; N/A   ; 223.41 MHz ( period = 4.476 ns )               ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg3 ; nBitsRegister:IRreg|Q[6]                                                                        ; Clock      ; Clock    ; None                        ; None                      ; 4.167 ns                ;
+; N/A   ; 223.41 MHz ( period = 4.476 ns )               ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg4 ; nBitsRegister:IRreg|Q[6]                                                                        ; Clock      ; Clock    ; None                        ; None                      ; 4.167 ns                ;
+; N/A   ; 223.56 MHz ( period = 4.473 ns )               ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg0 ; nBitsRegister:IRreg|Q[5]                                                                        ; Clock      ; Clock    ; None                        ; None                      ; 4.164 ns                ;
+; N/A   ; 223.56 MHz ( period = 4.473 ns )               ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg1 ; nBitsRegister:IRreg|Q[5]                                                                        ; Clock      ; Clock    ; None                        ; None                      ; 4.164 ns                ;
+; N/A   ; 223.56 MHz ( period = 4.473 ns )               ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg2 ; nBitsRegister:IRreg|Q[5]                                                                        ; Clock      ; Clock    ; None                        ; None                      ; 4.164 ns                ;
+; N/A   ; 223.56 MHz ( period = 4.473 ns )               ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg3 ; nBitsRegister:IRreg|Q[5]                                                                        ; Clock      ; Clock    ; None                        ; None                      ; 4.164 ns                ;
+; N/A   ; 223.56 MHz ( period = 4.473 ns )               ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg4 ; nBitsRegister:IRreg|Q[5]                                                                        ; Clock      ; Clock    ; None                        ; None                      ; 4.164 ns                ;
+; N/A   ; 245.64 MHz ( period = 4.071 ns )               ; nBitsRegister:Areg|Q[1]                                                                         ; nBitsRegister:Areg|Q[4]                                                                         ; Clock      ; Clock    ; None                        ; None                      ; 3.832 ns                ;
+; N/A   ; 246.67 MHz ( period = 4.054 ns )               ; nBitsRegister:Areg|Q[1]                                                                         ; nBitsRegister:Areg|Q[6]                                                                         ; Clock      ; Clock    ; None                        ; None                      ; 3.816 ns                ;
+; N/A   ; 252.46 MHz ( period = 3.961 ns )               ; nBitsRegister:Areg|Q[1]                                                                         ; nBitsRegister:Areg|Q[3]                                                                         ; Clock      ; Clock    ; None                        ; None                      ; 3.722 ns                ;
+; N/A   ; 258.26 MHz ( period = 3.872 ns )               ; nBitsRegister:Areg|Q[1]                                                                         ; nBitsRegister:Areg|Q[2]                                                                         ; Clock      ; Clock    ; None                        ; None                      ; 3.633 ns                ;
+; N/A   ; 258.87 MHz ( period = 3.863 ns )               ; nBitsRegister:Areg|Q[1]                                                                         ; nBitsRegister:Areg|Q[5]                                                                         ; Clock      ; Clock    ; None                        ; None                      ; 3.625 ns                ;
+; N/A   ; 266.60 MHz ( period = 3.751 ns )               ; nBitsRegister:Areg|Q[1]                                                                         ; nBitsRegister:Areg|Q[7]                                                                         ; Clock      ; Clock    ; None                        ; None                      ; 3.512 ns                ;
+; N/A   ; 276.09 MHz ( period = 3.622 ns )               ; nBitsRegister:Areg|Q[3]                                                                         ; nBitsRegister:Areg|Q[4]                                                                         ; Clock      ; Clock    ; None                        ; None                      ; 3.383 ns                ;
+; N/A   ; 277.39 MHz ( period = 3.605 ns )               ; nBitsRegister:Areg|Q[3]                                                                         ; nBitsRegister:Areg|Q[6]                                                                         ; Clock      ; Clock    ; None                        ; None                      ; 3.367 ns                ;
+; N/A   ; 282.01 MHz ( period = 3.546 ns )               ; nBitsRegister:Areg|Q[0]                                                                         ; nBitsRegister:Areg|Q[4]                                                                         ; Clock      ; Clock    ; None                        ; None                      ; 3.307 ns                ;
+; N/A   ; 283.37 MHz ( period = 3.529 ns )               ; nBitsRegister:Areg|Q[0]                                                                         ; nBitsRegister:Areg|Q[6]                                                                         ; Clock      ; Clock    ; None                        ; None                      ; 3.291 ns                ;
+; N/A   ; 286.45 MHz ( period = 3.491 ns )               ; nBitsRegister:Areg|Q[4]                                                                         ; nBitsRegister:Areg|Q[6]                                                                         ; Clock      ; Clock    ; None                        ; None                      ; 3.253 ns                ;
+; N/A   ; 291.04 MHz ( period = 3.436 ns )               ; nBitsRegister:Areg|Q[0]                                                                         ; nBitsRegister:Areg|Q[3]                                                                         ; Clock      ; Clock    ; None                        ; None                      ; 3.197 ns                ;
+; N/A   ; 292.91 MHz ( period = 3.414 ns )               ; nBitsRegister:Areg|Q[3]                                                                         ; nBitsRegister:Areg|Q[5]                                                                         ; Clock      ; Clock    ; None                        ; None                      ; 3.176 ns                ;
+; N/A   ; 295.60 MHz ( period = 3.383 ns )               ; nBitsRegister:Areg|Q[2]                                                                         ; nBitsRegister:Areg|Q[4]                                                                         ; Clock      ; Clock    ; None                        ; None                      ; 3.144 ns                ;
+; N/A   ; 297.09 MHz ( period = 3.366 ns )               ; nBitsRegister:Areg|Q[2]                                                                         ; nBitsRegister:Areg|Q[6]                                                                         ; Clock      ; Clock    ; None                        ; None                      ; 3.128 ns                ;
+; N/A   ; 297.89 MHz ( period = 3.357 ns )               ; nBitsRegister:Areg|Q[1]                                                                         ; nBitsRegister:Areg|Q[1]                                                                         ; Clock      ; Clock    ; None                        ; None                      ; 3.118 ns                ;
+; N/A   ; 298.78 MHz ( period = 3.347 ns )               ; nBitsRegister:Areg|Q[0]                                                                         ; nBitsRegister:Areg|Q[2]                                                                         ; Clock      ; Clock    ; None                        ; None                      ; 3.108 ns                ;
+; N/A   ; 299.58 MHz ( period = 3.338 ns )               ; nBitsRegister:Areg|Q[0]                                                                         ; nBitsRegister:Areg|Q[5]                                                                         ; Clock      ; Clock    ; None                        ; None                      ; 3.100 ns                ;
+; N/A   ; 302.85 MHz ( period = 3.302 ns )               ; nBitsRegister:Areg|Q[3]                                                                         ; nBitsRegister:Areg|Q[7]                                                                         ; Clock      ; Clock    ; None                        ; None                      ; 3.063 ns                ;
+; N/A   ; 303.03 MHz ( period = 3.300 ns )               ; nBitsRegister:Areg|Q[4]                                                                         ; nBitsRegister:Areg|Q[5]                                                                         ; Clock      ; Clock    ; None                        ; None                      ; 3.062 ns                ;
+; N/A   ; 305.53 MHz ( period = 3.273 ns )               ; nBitsRegister:Areg|Q[2]                                                                         ; nBitsRegister:Areg|Q[3]                                                                         ; Clock      ; Clock    ; None                        ; None                      ; 3.034 ns                ;
+; N/A   ; 309.98 MHz ( period = 3.226 ns )               ; nBitsRegister:Areg|Q[0]                                                                         ; nBitsRegister:Areg|Q[7]                                                                         ; Clock      ; Clock    ; None                        ; None                      ; 2.987 ns                ;
+; N/A   ; 313.68 MHz ( period = 3.188 ns )               ; nBitsRegister:Areg|Q[4]                                                                         ; nBitsRegister:Areg|Q[7]                                                                         ; Clock      ; Clock    ; None                        ; None                      ; 2.949 ns                ;
+; N/A   ; 314.17 MHz ( period = 3.183 ns )               ; nBitsRegister:Areg|Q[0]                                                                         ; nBitsRegister:Areg|Q[1]                                                                         ; Clock      ; Clock    ; None                        ; None                      ; 2.944 ns                ;
+; N/A   ; 314.96 MHz ( period = 3.175 ns )               ; nBitsRegister:Areg|Q[2]                                                                         ; nBitsRegister:Areg|Q[5]                                                                         ; Clock      ; Clock    ; None                        ; None                      ; 2.937 ns                ;
+; N/A   ; 316.36 MHz ( period = 3.161 ns )               ; nBitsRegister:Areg|Q[3]                                                                         ; nBitsRegister:Areg|Q[3]                                                                         ; Clock      ; Clock    ; None                        ; None                      ; 2.922 ns                ;
+; N/A   ; 316.96 MHz ( period = 3.155 ns )               ; nBitsRegister:Areg|Q[4]                                                                         ; nBitsRegister:Areg|Q[4]                                                                         ; Clock      ; Clock    ; None                        ; None                      ; 2.916 ns                ;
+; N/A   ; Restricted to 195.01 MHz ( period = 5.128 ns ) ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~porta_datain_reg0  ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~porta_memory_reg0  ; Clock      ; Clock    ; None                        ; None                      ; 2.780 ns                ;
+; N/A   ; Restricted to 195.01 MHz ( period = 5.128 ns ) ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~porta_datain_reg1  ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a1~porta_memory_reg0  ; Clock      ; Clock    ; None                        ; None                      ; 2.780 ns                ;
+; N/A   ; Restricted to 195.01 MHz ( period = 5.128 ns ) ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~porta_datain_reg2  ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a2~porta_memory_reg0  ; Clock      ; Clock    ; None                        ; None                      ; 2.780 ns                ;
+; N/A   ; Restricted to 195.01 MHz ( period = 5.128 ns ) ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~porta_datain_reg3  ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a3~porta_memory_reg0  ; Clock      ; Clock    ; None                        ; None                      ; 2.780 ns                ;
+; N/A   ; Restricted to 195.01 MHz ( period = 5.128 ns ) ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~porta_datain_reg4  ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a4~porta_memory_reg0  ; Clock      ; Clock    ; None                        ; None                      ; 2.780 ns                ;
+; N/A   ; Restricted to 195.01 MHz ( period = 5.128 ns ) ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~porta_datain_reg5  ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a5~porta_memory_reg0  ; Clock      ; Clock    ; None                        ; None                      ; 2.780 ns                ;
+; N/A   ; Restricted to 195.01 MHz ( period = 5.128 ns ) ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~porta_datain_reg6  ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a6~porta_memory_reg0  ; Clock      ; Clock    ; None                        ; None                      ; 2.780 ns                ;
+; N/A   ; Restricted to 195.01 MHz ( period = 5.128 ns ) ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~porta_datain_reg7  ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a7~porta_memory_reg0  ; Clock      ; Clock    ; None                        ; None                      ; 2.780 ns                ;
+; N/A   ; 326.48 MHz ( period = 3.063 ns )               ; nBitsRegister:Areg|Q[2]                                                                         ; nBitsRegister:Areg|Q[7]                                                                         ; Clock      ; Clock    ; None                        ; None                      ; 2.824 ns                ;
+; N/A   ; 344.12 MHz ( period = 2.906 ns )               ; nBitsRegister:Areg|Q[5]                                                                         ; nBitsRegister:Areg|Q[6]                                                                         ; Clock      ; Clock    ; None                        ; None                      ; 2.667 ns                ;
+; N/A   ; 353.23 MHz ( period = 2.831 ns )               ; nBitsRegister:Areg|Q[2]                                                                         ; nBitsRegister:Areg|Q[2]                                                                         ; Clock      ; Clock    ; None                        ; None                      ; 2.592 ns                ;
+; N/A   ; 363.24 MHz ( period = 2.753 ns )               ; nBitsRegister:Areg|Q[0]                                                                         ; nBitsRegister:Areg|Q[0]                                                                         ; Clock      ; Clock    ; None                        ; None                      ; 2.514 ns                ;
+; N/A   ; Restricted to 380.08 MHz ( period = 2.631 ns ) ; nBitsRegister:Areg|Q[5]                                                                         ; nBitsRegister:Areg|Q[7]                                                                         ; Clock      ; Clock    ; None                        ; None                      ; 2.363 ns                ;
+; N/A   ; Restricted to 380.08 MHz ( period = 2.631 ns ) ; nBitsRegister:Areg|Q[7]                                                                         ; nBitsRegister:Areg|Q[7]                                                                         ; Clock      ; Clock    ; None                        ; None                      ; 2.265 ns                ;
+; N/A   ; Restricted to 195.01 MHz ( period = 5.128 ns ) ; nBitsRegister:PCreg|Q[2]                                                                        ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~porta_address_reg2 ; Clock      ; Clock    ; None                        ; None                      ; 2.221 ns                ;
+; N/A   ; Restricted to 195.01 MHz ( period = 5.128 ns ) ; nBitsRegister:PCreg|Q[2]                                                                        ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg2 ; Clock      ; Clock    ; None                        ; None                      ; 2.221 ns                ;
+; N/A   ; Restricted to 380.08 MHz ( period = 2.631 ns ) ; nBitsRegister:Areg|Q[6]                                                                         ; nBitsRegister:Areg|Q[7]                                                                         ; Clock      ; Clock    ; None                        ; None                      ; 2.178 ns                ;
+; N/A   ; Restricted to 380.08 MHz ( period = 2.631 ns ) ; nBitsRegister:Areg|Q[6]                                                                         ; nBitsRegister:Areg|Q[6]                                                                         ; Clock      ; Clock    ; None                        ; None                      ; 2.129 ns                ;
+; N/A   ; Restricted to 380.08 MHz ( period = 2.631 ns ) ; nBitsRegister:Areg|Q[5]                                                                         ; nBitsRegister:Areg|Q[5]                                                                         ; Clock      ; Clock    ; None                        ; None                      ; 2.116 ns                ;
+; N/A   ; Restricted to 195.01 MHz ( period = 5.128 ns ) ; nBitsRegister:PCreg|Q[4]                                                                        ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~porta_address_reg4 ; Clock      ; Clock    ; None                        ; None                      ; 1.983 ns                ;
+; N/A   ; Restricted to 195.01 MHz ( period = 5.128 ns ) ; nBitsRegister:PCreg|Q[4]                                                                        ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg4 ; Clock      ; Clock    ; None                        ; None                      ; 1.983 ns                ;
+; N/A   ; Restricted to 195.01 MHz ( period = 5.128 ns ) ; nBitsRegister:PCreg|Q[0]                                                                        ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~porta_address_reg0 ; Clock      ; Clock    ; None                        ; None                      ; 1.945 ns                ;
+; N/A   ; Restricted to 195.01 MHz ( period = 5.128 ns ) ; nBitsRegister:PCreg|Q[1]                                                                        ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~porta_address_reg1 ; Clock      ; Clock    ; None                        ; None                      ; 1.939 ns                ;
+; N/A   ; Restricted to 195.01 MHz ( period = 5.128 ns ) ; nBitsRegister:PCreg|Q[3]                                                                        ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~porta_address_reg3 ; Clock      ; Clock    ; None                        ; None                      ; 1.924 ns                ;
+; N/A   ; Restricted to 195.01 MHz ( period = 5.128 ns ) ; nBitsRegister:PCreg|Q[0]                                                                        ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg0 ; Clock      ; Clock    ; None                        ; None                      ; 1.945 ns                ;
+; N/A   ; Restricted to 195.01 MHz ( period = 5.128 ns ) ; nBitsRegister:PCreg|Q[1]                                                                        ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg1 ; Clock      ; Clock    ; None                        ; None                      ; 1.939 ns                ;
+; N/A   ; Restricted to 195.01 MHz ( period = 5.128 ns ) ; nBitsRegister:PCreg|Q[3]                                                                        ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg3 ; Clock      ; Clock    ; None                        ; None                      ; 1.924 ns                ;
+; N/A   ; Restricted to 380.08 MHz ( period = 2.631 ns ) ; nBitsRegister:PCreg|Q[0]                                                                        ; nBitsRegister:PCreg|Q[4]                                                                        ; Clock      ; Clock    ; None                        ; None                      ; 1.653 ns                ;
+; N/A   ; Restricted to 380.08 MHz ( period = 2.631 ns ) ; nBitsRegister:PCreg|Q[1]                                                                        ; nBitsRegister:PCreg|Q[4]                                                                        ; Clock      ; Clock    ; None                        ; None                      ; 1.613 ns                ;
+; N/A   ; Restricted to 380.08 MHz ( period = 2.631 ns ) ; nBitsRegister:PCreg|Q[0]                                                                        ; nBitsRegister:PCreg|Q[3]                                                                        ; Clock      ; Clock    ; None                        ; None                      ; 1.573 ns                ;
+; N/A   ; Restricted to 380.08 MHz ( period = 2.631 ns ) ; nBitsRegister:PCreg|Q[1]                                                                        ; nBitsRegister:PCreg|Q[3]                                                                        ; Clock      ; Clock    ; None                        ; None                      ; 1.533 ns                ;
+; N/A   ; Restricted to 380.08 MHz ( period = 2.631 ns ) ; nBitsRegister:PCreg|Q[0]                                                                        ; nBitsRegister:PCreg|Q[2]                                                                        ; Clock      ; Clock    ; None                        ; None                      ; 1.493 ns                ;
+; N/A   ; Restricted to 380.08 MHz ( period = 2.631 ns ) ; nBitsRegister:PCreg|Q[2]                                                                        ; nBitsRegister:PCreg|Q[4]                                                                        ; Clock      ; Clock    ; None                        ; None                      ; 1.493 ns                ;
+; N/A   ; Restricted to 380.08 MHz ( period = 2.631 ns ) ; nBitsRegister:PCreg|Q[3]                                                                        ; nBitsRegister:PCreg|Q[4]                                                                        ; Clock      ; Clock    ; None                        ; None                      ; 1.454 ns                ;
+; N/A   ; Restricted to 380.08 MHz ( period = 2.631 ns ) ; nBitsRegister:PCreg|Q[1]                                                                        ; nBitsRegister:PCreg|Q[2]                                                                        ; Clock      ; Clock    ; None                        ; None                      ; 1.453 ns                ;
+; N/A   ; Restricted to 380.08 MHz ( period = 2.631 ns ) ; nBitsRegister:PCreg|Q[0]                                                                        ; nBitsRegister:PCreg|Q[1]                                                                        ; Clock      ; Clock    ; None                        ; None                      ; 1.413 ns                ;
+; N/A   ; Restricted to 380.08 MHz ( period = 2.631 ns ) ; nBitsRegister:PCreg|Q[2]                                                                        ; nBitsRegister:PCreg|Q[3]                                                                        ; Clock      ; Clock    ; None                        ; None                      ; 1.413 ns                ;
+; N/A   ; Restricted to 380.08 MHz ( period = 2.631 ns ) ; nBitsRegister:IRreg|Q[3]                                                                        ; nBitsRegister:PCreg|Q[3]                                                                        ; Clock      ; Clock    ; None                        ; None                      ; 1.303 ns                ;
+; N/A   ; Restricted to 380.08 MHz ( period = 2.631 ns ) ; nBitsRegister:IRreg|Q[1]                                                                        ; nBitsRegister:PCreg|Q[1]                                                                        ; Clock      ; Clock    ; None                        ; None                      ; 1.271 ns                ;
+; N/A   ; Restricted to 380.08 MHz ( period = 2.631 ns ) ; nBitsRegister:IRreg|Q[2]                                                                        ; nBitsRegister:PCreg|Q[2]                                                                        ; Clock      ; Clock    ; None                        ; None                      ; 1.263 ns                ;
+; N/A   ; Restricted to 195.01 MHz ( period = 5.128 ns ) ; nBitsRegister:IRreg|Q[4]                                                                        ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~porta_address_reg4 ; Clock      ; Clock    ; None                        ; None                      ; 1.184 ns                ;
+; N/A   ; Restricted to 195.01 MHz ( period = 5.128 ns ) ; nBitsRegister:Areg|Q[0]                                                                         ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~porta_datain_reg0  ; Clock      ; Clock    ; None                        ; None                      ; 1.185 ns                ;
+; N/A   ; Restricted to 195.01 MHz ( period = 5.128 ns ) ; nBitsRegister:IRreg|Q[0]                                                                        ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~porta_address_reg0 ; Clock      ; Clock    ; None                        ; None                      ; 1.177 ns                ;
+; N/A   ; Restricted to 195.01 MHz ( period = 5.128 ns ) ; nBitsRegister:IRreg|Q[1]                                                                        ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~porta_address_reg1 ; Clock      ; Clock    ; None                        ; None                      ; 1.176 ns                ;
+; N/A   ; Restricted to 195.01 MHz ( period = 5.128 ns ) ; nBitsRegister:IRreg|Q[2]                                                                        ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~porta_address_reg2 ; Clock      ; Clock    ; None                        ; None                      ; 1.176 ns                ;
+; N/A   ; Restricted to 195.01 MHz ( period = 5.128 ns ) ; nBitsRegister:IRreg|Q[3]                                                                        ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~porta_address_reg3 ; Clock      ; Clock    ; None                        ; None                      ; 1.158 ns                ;
+; N/A   ; Restricted to 195.01 MHz ( period = 5.128 ns ) ; nBitsRegister:IRreg|Q[4]                                                                        ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg4 ; Clock      ; Clock    ; None                        ; None                      ; 1.184 ns                ;
+; N/A   ; Restricted to 195.01 MHz ( period = 5.128 ns ) ; nBitsRegister:Areg|Q[7]                                                                         ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~porta_datain_reg7  ; Clock      ; Clock    ; None                        ; None                      ; 1.152 ns                ;
+; N/A   ; Restricted to 195.01 MHz ( period = 5.128 ns ) ; nBitsRegister:Areg|Q[1]                                                                         ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~porta_datain_reg1  ; Clock      ; Clock    ; None                        ; None                      ; 1.149 ns                ;
+; N/A   ; Restricted to 195.01 MHz ( period = 5.128 ns ) ; nBitsRegister:Areg|Q[3]                                                                         ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~porta_datain_reg3  ; Clock      ; Clock    ; None                        ; None                      ; 1.148 ns                ;
+; N/A   ; Restricted to 195.01 MHz ( period = 5.128 ns ) ; nBitsRegister:IRreg|Q[0]                                                                        ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg0 ; Clock      ; Clock    ; None                        ; None                      ; 1.177 ns                ;
+; N/A   ; Restricted to 195.01 MHz ( period = 5.128 ns ) ; nBitsRegister:IRreg|Q[1]                                                                        ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg1 ; Clock      ; Clock    ; None                        ; None                      ; 1.176 ns                ;
+; N/A   ; Restricted to 195.01 MHz ( period = 5.128 ns ) ; nBitsRegister:IRreg|Q[2]                                                                        ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg2 ; Clock      ; Clock    ; None                        ; None                      ; 1.176 ns                ;
+; N/A   ; Restricted to 195.01 MHz ( period = 5.128 ns ) ; nBitsRegister:Areg|Q[4]                                                                         ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~porta_datain_reg4  ; Clock      ; Clock    ; None                        ; None                      ; 1.146 ns                ;
+; N/A   ; Restricted to 195.01 MHz ( period = 5.128 ns ) ; nBitsRegister:Areg|Q[2]                                                                         ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~porta_datain_reg2  ; Clock      ; Clock    ; None                        ; None                      ; 1.140 ns                ;
+; N/A   ; Restricted to 195.01 MHz ( period = 5.128 ns ) ; nBitsRegister:IRreg|Q[3]                                                                        ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg3 ; Clock      ; Clock    ; None                        ; None                      ; 1.158 ns                ;
+; N/A   ; Restricted to 380.08 MHz ( period = 2.631 ns ) ; nBitsRegister:PCreg|Q[3]                                                                        ; nBitsRegister:PCreg|Q[3]                                                                        ; Clock      ; Clock    ; None                        ; None                      ; 1.021 ns                ;
+; N/A   ; Restricted to 380.08 MHz ( period = 2.631 ns ) ; nBitsRegister:PCreg|Q[1]                                                                        ; nBitsRegister:PCreg|Q[1]                                                                        ; Clock      ; Clock    ; None                        ; None                      ; 1.020 ns                ;
+; N/A   ; Restricted to 380.08 MHz ( period = 2.631 ns ) ; nBitsRegister:IRreg|Q[0]                                                                        ; nBitsRegister:PCreg|Q[0]                                                                        ; Clock      ; Clock    ; None                        ; None                      ; 0.996 ns                ;
+; N/A   ; Restricted to 380.08 MHz ( period = 2.631 ns ) ; nBitsRegister:PCreg|Q[0]                                                                        ; nBitsRegister:PCreg|Q[0]                                                                        ; Clock      ; Clock    ; None                        ; None                      ; 0.981 ns                ;
+; N/A   ; Restricted to 380.08 MHz ( period = 2.631 ns ) ; nBitsRegister:PCreg|Q[2]                                                                        ; nBitsRegister:PCreg|Q[2]                                                                        ; Clock      ; Clock    ; None                        ; None                      ; 0.981 ns                ;
+; N/A   ; Restricted to 380.08 MHz ( period = 2.631 ns ) ; nBitsRegister:IRreg|Q[4]                                                                        ; nBitsRegister:PCreg|Q[4]                                                                        ; Clock      ; Clock    ; None                        ; None                      ; 0.943 ns                ;
+; N/A   ; Restricted to 195.01 MHz ( period = 5.128 ns ) ; nBitsRegister:Areg|Q[5]                                                                         ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~porta_datain_reg5  ; Clock      ; Clock    ; None                        ; None                      ; 0.820 ns                ;
+; N/A   ; Restricted to 195.01 MHz ( period = 5.128 ns ) ; nBitsRegister:Areg|Q[6]                                                                         ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~porta_datain_reg6  ; Clock      ; Clock    ; None                        ; None                      ; 0.820 ns                ;
+; N/A   ; Restricted to 380.08 MHz ( period = 2.631 ns ) ; nBitsRegister:PCreg|Q[4]                                                                        ; nBitsRegister:PCreg|Q[4]                                                                        ; Clock      ; Clock    ; None                        ; None                      ; 0.629 ns                ;
++-------+------------------------------------------------+-------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; tsu                                                                                                                                                       ;
++-------+--------------+------------+----------+-------------------------------------------------------------------------------------------------+----------+
+; Slack ; Required tsu ; Actual tsu ; From     ; To                                                                                              ; To Clock ;
++-------+--------------+------------+----------+-------------------------------------------------------------------------------------------------+----------+
+; N/A   ; None         ; 7.122 ns   ; Sub      ; nBitsRegister:Areg|Q[4]                                                                         ; Clock    ;
+; N/A   ; None         ; 7.105 ns   ; Sub      ; nBitsRegister:Areg|Q[6]                                                                         ; Clock    ;
+; N/A   ; None         ; 6.948 ns   ; Sub      ; nBitsRegister:Areg|Q[3]                                                                         ; Clock    ;
+; N/A   ; None         ; 6.914 ns   ; Sub      ; nBitsRegister:Areg|Q[5]                                                                         ; Clock    ;
+; N/A   ; None         ; 6.859 ns   ; Sub      ; nBitsRegister:Areg|Q[2]                                                                         ; Clock    ;
+; N/A   ; None         ; 6.802 ns   ; Sub      ; nBitsRegister:Areg|Q[7]                                                                         ; Clock    ;
+; N/A   ; None         ; 6.695 ns   ; Sub      ; nBitsRegister:Areg|Q[1]                                                                         ; Clock    ;
+; N/A   ; None         ; 6.261 ns   ; Sub      ; nBitsRegister:Areg|Q[0]                                                                         ; Clock    ;
+; N/A   ; None         ; 5.352 ns   ; Asel[1]  ; nBitsRegister:Areg|Q[7]                                                                         ; Clock    ;
+; N/A   ; None         ; 5.209 ns   ; Asel[1]  ; nBitsRegister:Areg|Q[3]                                                                         ; Clock    ;
+; N/A   ; None         ; 5.203 ns   ; Asel[1]  ; nBitsRegister:Areg|Q[2]                                                                         ; Clock    ;
+; N/A   ; None         ; 5.165 ns   ; Aload    ; nBitsRegister:Areg|Q[5]                                                                         ; Clock    ;
+; N/A   ; None         ; 5.165 ns   ; Aload    ; nBitsRegister:Areg|Q[6]                                                                         ; Clock    ;
+; N/A   ; None         ; 5.160 ns   ; Asel[1]  ; nBitsRegister:Areg|Q[0]                                                                         ; Clock    ;
+; N/A   ; None         ; 5.155 ns   ; Asel[1]  ; nBitsRegister:Areg|Q[1]                                                                         ; Clock    ;
+; N/A   ; None         ; 5.126 ns   ; Asel[1]  ; nBitsRegister:Areg|Q[4]                                                                         ; Clock    ;
+; N/A   ; None         ; 4.875 ns   ; Asel[0]  ; nBitsRegister:Areg|Q[0]                                                                         ; Clock    ;
+; N/A   ; None         ; 4.870 ns   ; Asel[0]  ; nBitsRegister:Areg|Q[1]                                                                         ; Clock    ;
+; N/A   ; None         ; 4.855 ns   ; Asel[0]  ; nBitsRegister:Areg|Q[4]                                                                         ; Clock    ;
+; N/A   ; None         ; 4.775 ns   ; Asel[1]  ; nBitsRegister:Areg|Q[6]                                                                         ; Clock    ;
+; N/A   ; None         ; 4.767 ns   ; Asel[0]  ; nBitsRegister:Areg|Q[6]                                                                         ; Clock    ;
+; N/A   ; None         ; 4.766 ns   ; Asel[1]  ; nBitsRegister:Areg|Q[5]                                                                         ; Clock    ;
+; N/A   ; None         ; 4.756 ns   ; Asel[0]  ; nBitsRegister:Areg|Q[5]                                                                         ; Clock    ;
+; N/A   ; None         ; 4.710 ns   ; Asel[0]  ; nBitsRegister:Areg|Q[7]                                                                         ; Clock    ;
+; N/A   ; None         ; 4.669 ns   ; Meminst  ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~porta_address_reg4 ; Clock    ;
+; N/A   ; None         ; 4.662 ns   ; Meminst  ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~porta_address_reg1 ; Clock    ;
+; N/A   ; None         ; 4.662 ns   ; Meminst  ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~porta_address_reg2 ; Clock    ;
+; N/A   ; None         ; 4.659 ns   ; Meminst  ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~porta_address_reg0 ; Clock    ;
+; N/A   ; None         ; 4.642 ns   ; Meminst  ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~porta_address_reg3 ; Clock    ;
+; N/A   ; None         ; 4.633 ns   ; Meminst  ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg4 ; Clock    ;
+; N/A   ; None         ; 4.626 ns   ; Meminst  ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg1 ; Clock    ;
+; N/A   ; None         ; 4.626 ns   ; Meminst  ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg2 ; Clock    ;
+; N/A   ; None         ; 4.623 ns   ; Meminst  ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg0 ; Clock    ;
+; N/A   ; None         ; 4.606 ns   ; Meminst  ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg3 ; Clock    ;
+; N/A   ; None         ; 4.562 ns   ; Input[0] ; nBitsRegister:Areg|Q[0]                                                                         ; Clock    ;
+; N/A   ; None         ; 4.562 ns   ; Asel[0]  ; nBitsRegister:Areg|Q[2]                                                                         ; Clock    ;
+; N/A   ; None         ; 4.558 ns   ; Asel[0]  ; nBitsRegister:Areg|Q[3]                                                                         ; Clock    ;
+; N/A   ; None         ; 4.524 ns   ; Aload    ; nBitsRegister:Areg|Q[0]                                                                         ; Clock    ;
+; N/A   ; None         ; 4.524 ns   ; Aload    ; nBitsRegister:Areg|Q[1]                                                                         ; Clock    ;
+; N/A   ; None         ; 4.524 ns   ; Aload    ; nBitsRegister:Areg|Q[2]                                                                         ; Clock    ;
+; N/A   ; None         ; 4.524 ns   ; Aload    ; nBitsRegister:Areg|Q[3]                                                                         ; Clock    ;
+; N/A   ; None         ; 4.524 ns   ; Aload    ; nBitsRegister:Areg|Q[4]                                                                         ; Clock    ;
+; N/A   ; None         ; 4.524 ns   ; Aload    ; nBitsRegister:Areg|Q[7]                                                                         ; Clock    ;
+; N/A   ; None         ; 4.396 ns   ; MemWr    ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~porta_we_reg       ; Clock    ;
+; N/A   ; None         ; 4.396 ns   ; MemWr    ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~porta_datain_reg0  ; Clock    ;
+; N/A   ; None         ; 4.396 ns   ; MemWr    ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~porta_address_reg0 ; Clock    ;
+; N/A   ; None         ; 4.396 ns   ; MemWr    ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~porta_address_reg1 ; Clock    ;
+; N/A   ; None         ; 4.396 ns   ; MemWr    ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~porta_address_reg2 ; Clock    ;
+; N/A   ; None         ; 4.396 ns   ; MemWr    ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~porta_address_reg3 ; Clock    ;
+; N/A   ; None         ; 4.396 ns   ; MemWr    ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~porta_address_reg4 ; Clock    ;
+; N/A   ; None         ; 4.396 ns   ; MemWr    ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~porta_datain_reg1  ; Clock    ;
+; N/A   ; None         ; 4.396 ns   ; MemWr    ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~porta_datain_reg2  ; Clock    ;
+; N/A   ; None         ; 4.396 ns   ; MemWr    ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~porta_datain_reg3  ; Clock    ;
+; N/A   ; None         ; 4.396 ns   ; MemWr    ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~porta_datain_reg4  ; Clock    ;
+; N/A   ; None         ; 4.396 ns   ; MemWr    ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~porta_datain_reg5  ; Clock    ;
+; N/A   ; None         ; 4.396 ns   ; MemWr    ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~porta_datain_reg6  ; Clock    ;
+; N/A   ; None         ; 4.396 ns   ; MemWr    ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~porta_datain_reg7  ; Clock    ;
+; N/A   ; None         ; 4.395 ns   ; MemWr    ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg0 ; Clock    ;
+; N/A   ; None         ; 4.395 ns   ; MemWr    ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg1 ; Clock    ;
+; N/A   ; None         ; 4.395 ns   ; MemWr    ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg2 ; Clock    ;
+; N/A   ; None         ; 4.395 ns   ; MemWr    ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg3 ; Clock    ;
+; N/A   ; None         ; 4.395 ns   ; MemWr    ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg4 ; Clock    ;
+; N/A   ; None         ; 4.353 ns   ; Input[7] ; nBitsRegister:Areg|Q[7]                                                                         ; Clock    ;
+; N/A   ; None         ; 4.293 ns   ; IRload   ; nBitsRegister:IRreg|Q[0]                                                                        ; Clock    ;
+; N/A   ; None         ; 4.293 ns   ; IRload   ; nBitsRegister:IRreg|Q[1]                                                                        ; Clock    ;
+; N/A   ; None         ; 4.293 ns   ; IRload   ; nBitsRegister:IRreg|Q[2]                                                                        ; Clock    ;
+; N/A   ; None         ; 4.293 ns   ; IRload   ; nBitsRegister:IRreg|Q[3]                                                                        ; Clock    ;
+; N/A   ; None         ; 4.293 ns   ; IRload   ; nBitsRegister:IRreg|Q[4]                                                                        ; Clock    ;
+; N/A   ; None         ; 4.293 ns   ; IRload   ; nBitsRegister:IRreg|Q[5]                                                                        ; Clock    ;
+; N/A   ; None         ; 4.293 ns   ; IRload   ; nBitsRegister:IRreg|Q[6]                                                                        ; Clock    ;
+; N/A   ; None         ; 4.293 ns   ; IRload   ; nBitsRegister:IRreg|Q[7]                                                                        ; Clock    ;
+; N/A   ; None         ; 4.269 ns   ; Input[5] ; nBitsRegister:Areg|Q[5]                                                                         ; Clock    ;
+; N/A   ; None         ; 4.265 ns   ; JMPmux   ; nBitsRegister:PCreg|Q[0]                                                                        ; Clock    ;
+; N/A   ; None         ; 4.265 ns   ; JMPmux   ; nBitsRegister:PCreg|Q[1]                                                                        ; Clock    ;
+; N/A   ; None         ; 4.265 ns   ; JMPmux   ; nBitsRegister:PCreg|Q[2]                                                                        ; Clock    ;
+; N/A   ; None         ; 4.265 ns   ; JMPmux   ; nBitsRegister:PCreg|Q[3]                                                                        ; Clock    ;
+; N/A   ; None         ; 4.265 ns   ; JMPmux   ; nBitsRegister:PCreg|Q[4]                                                                        ; Clock    ;
+; N/A   ; None         ; 4.236 ns   ; PCload   ; nBitsRegister:PCreg|Q[0]                                                                        ; Clock    ;
+; N/A   ; None         ; 4.236 ns   ; PCload   ; nBitsRegister:PCreg|Q[1]                                                                        ; Clock    ;
+; N/A   ; None         ; 4.236 ns   ; PCload   ; nBitsRegister:PCreg|Q[2]                                                                        ; Clock    ;
+; N/A   ; None         ; 4.236 ns   ; PCload   ; nBitsRegister:PCreg|Q[3]                                                                        ; Clock    ;
+; N/A   ; None         ; 4.236 ns   ; PCload   ; nBitsRegister:PCreg|Q[4]                                                                        ; Clock    ;
+; N/A   ; None         ; 4.216 ns   ; Input[1] ; nBitsRegister:Areg|Q[1]                                                                         ; Clock    ;
+; N/A   ; None         ; 4.080 ns   ; Input[4] ; nBitsRegister:Areg|Q[4]                                                                         ; Clock    ;
+; N/A   ; None         ; 4.062 ns   ; Input[3] ; nBitsRegister:Areg|Q[3]                                                                         ; Clock    ;
+; N/A   ; None         ; 4.061 ns   ; Input[2] ; nBitsRegister:Areg|Q[2]                                                                         ; Clock    ;
+; N/A   ; None         ; 4.014 ns   ; Input[6] ; nBitsRegister:Areg|Q[6]                                                                         ; Clock    ;
++-------+--------------+------------+----------+-------------------------------------------------------------------------------------------------+----------+
+
+
++---------------------------------------------------------------------------------------+
+; tco                                                                                   ;
++-------+--------------+------------+--------------------------+-----------+------------+
+; Slack ; Required tco ; Actual tco ; From                     ; To        ; From Clock ;
++-------+--------------+------------+--------------------------+-----------+------------+
+; N/A   ; None         ; 9.414 ns   ; nBitsRegister:Areg|Q[4]  ; Aeq0      ; Clock      ;
+; N/A   ; None         ; 9.369 ns   ; nBitsRegister:Areg|Q[1]  ; Aeq0      ; Clock      ;
+; N/A   ; None         ; 9.134 ns   ; nBitsRegister:Areg|Q[3]  ; Aeq0      ; Clock      ;
+; N/A   ; None         ; 9.111 ns   ; nBitsRegister:Areg|Q[6]  ; Aeq0      ; Clock      ;
+; N/A   ; None         ; 9.024 ns   ; nBitsRegister:Areg|Q[2]  ; Aeq0      ; Clock      ;
+; N/A   ; None         ; 8.884 ns   ; nBitsRegister:Areg|Q[0]  ; Aeq0      ; Clock      ;
+; N/A   ; None         ; 8.779 ns   ; nBitsRegister:Areg|Q[7]  ; Aeq0      ; Clock      ;
+; N/A   ; None         ; 8.711 ns   ; nBitsRegister:Areg|Q[5]  ; Aeq0      ; Clock      ;
+; N/A   ; None         ; 8.161 ns   ; nBitsRegister:Areg|Q[6]  ; Output[6] ; Clock      ;
+; N/A   ; None         ; 8.015 ns   ; nBitsRegister:IRreg|Q[7] ; IR[2]     ; Clock      ;
+; N/A   ; None         ; 7.974 ns   ; nBitsRegister:Areg|Q[7]  ; Apos      ; Clock      ;
+; N/A   ; None         ; 7.954 ns   ; nBitsRegister:Areg|Q[7]  ; Output[7] ; Clock      ;
+; N/A   ; None         ; 7.752 ns   ; nBitsRegister:Areg|Q[4]  ; Output[4] ; Clock      ;
+; N/A   ; None         ; 7.730 ns   ; nBitsRegister:Areg|Q[0]  ; Output[0] ; Clock      ;
+; N/A   ; None         ; 7.727 ns   ; nBitsRegister:Areg|Q[1]  ; Output[1] ; Clock      ;
+; N/A   ; None         ; 7.718 ns   ; nBitsRegister:Areg|Q[5]  ; Output[5] ; Clock      ;
+; N/A   ; None         ; 7.691 ns   ; nBitsRegister:Areg|Q[3]  ; Output[3] ; Clock      ;
+; N/A   ; None         ; 7.419 ns   ; nBitsRegister:IRreg|Q[5] ; IR[0]     ; Clock      ;
+; N/A   ; None         ; 7.406 ns   ; nBitsRegister:IRreg|Q[6] ; IR[1]     ; Clock      ;
+; N/A   ; None         ; 7.371 ns   ; nBitsRegister:Areg|Q[2]  ; Output[2] ; Clock      ;
++-------+--------------+------------+--------------------------+-----------+------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; th                                                                                                                                                              ;
++---------------+-------------+-----------+----------+-------------------------------------------------------------------------------------------------+----------+
+; Minimum Slack ; Required th ; Actual th ; From     ; To                                                                                              ; To Clock ;
++---------------+-------------+-----------+----------+-------------------------------------------------------------------------------------------------+----------+
+; N/A           ; None        ; -3.745 ns ; MemWr    ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~porta_we_reg       ; Clock    ;
+; N/A           ; None        ; -3.766 ns ; Input[6] ; nBitsRegister:Areg|Q[6]                                                                         ; Clock    ;
+; N/A           ; None        ; -3.813 ns ; Input[2] ; nBitsRegister:Areg|Q[2]                                                                         ; Clock    ;
+; N/A           ; None        ; -3.814 ns ; Input[3] ; nBitsRegister:Areg|Q[3]                                                                         ; Clock    ;
+; N/A           ; None        ; -3.832 ns ; Input[4] ; nBitsRegister:Areg|Q[4]                                                                         ; Clock    ;
+; N/A           ; None        ; -3.893 ns ; Asel[1]  ; nBitsRegister:Areg|Q[5]                                                                         ; Clock    ;
+; N/A           ; None        ; -3.968 ns ; Input[1] ; nBitsRegister:Areg|Q[1]                                                                         ; Clock    ;
+; N/A           ; None        ; -3.988 ns ; PCload   ; nBitsRegister:PCreg|Q[0]                                                                        ; Clock    ;
+; N/A           ; None        ; -3.988 ns ; PCload   ; nBitsRegister:PCreg|Q[1]                                                                        ; Clock    ;
+; N/A           ; None        ; -3.988 ns ; PCload   ; nBitsRegister:PCreg|Q[2]                                                                        ; Clock    ;
+; N/A           ; None        ; -3.988 ns ; PCload   ; nBitsRegister:PCreg|Q[3]                                                                        ; Clock    ;
+; N/A           ; None        ; -3.988 ns ; PCload   ; nBitsRegister:PCreg|Q[4]                                                                        ; Clock    ;
+; N/A           ; None        ; -4.017 ns ; JMPmux   ; nBitsRegister:PCreg|Q[0]                                                                        ; Clock    ;
+; N/A           ; None        ; -4.017 ns ; JMPmux   ; nBitsRegister:PCreg|Q[1]                                                                        ; Clock    ;
+; N/A           ; None        ; -4.017 ns ; JMPmux   ; nBitsRegister:PCreg|Q[2]                                                                        ; Clock    ;
+; N/A           ; None        ; -4.017 ns ; JMPmux   ; nBitsRegister:PCreg|Q[3]                                                                        ; Clock    ;
+; N/A           ; None        ; -4.017 ns ; JMPmux   ; nBitsRegister:PCreg|Q[4]                                                                        ; Clock    ;
+; N/A           ; None        ; -4.021 ns ; Input[5] ; nBitsRegister:Areg|Q[5]                                                                         ; Clock    ;
+; N/A           ; None        ; -4.045 ns ; IRload   ; nBitsRegister:IRreg|Q[0]                                                                        ; Clock    ;
+; N/A           ; None        ; -4.045 ns ; IRload   ; nBitsRegister:IRreg|Q[1]                                                                        ; Clock    ;
+; N/A           ; None        ; -4.045 ns ; IRload   ; nBitsRegister:IRreg|Q[2]                                                                        ; Clock    ;
+; N/A           ; None        ; -4.045 ns ; IRload   ; nBitsRegister:IRreg|Q[3]                                                                        ; Clock    ;
+; N/A           ; None        ; -4.045 ns ; IRload   ; nBitsRegister:IRreg|Q[4]                                                                        ; Clock    ;
+; N/A           ; None        ; -4.045 ns ; IRload   ; nBitsRegister:IRreg|Q[5]                                                                        ; Clock    ;
+; N/A           ; None        ; -4.045 ns ; IRload   ; nBitsRegister:IRreg|Q[6]                                                                        ; Clock    ;
+; N/A           ; None        ; -4.045 ns ; IRload   ; nBitsRegister:IRreg|Q[7]                                                                        ; Clock    ;
+; N/A           ; None        ; -4.062 ns ; Asel[1]  ; nBitsRegister:Areg|Q[6]                                                                         ; Clock    ;
+; N/A           ; None        ; -4.105 ns ; Input[7] ; nBitsRegister:Areg|Q[7]                                                                         ; Clock    ;
+; N/A           ; None        ; -4.105 ns ; MemWr    ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg0 ; Clock    ;
+; N/A           ; None        ; -4.105 ns ; MemWr    ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg1 ; Clock    ;
+; N/A           ; None        ; -4.105 ns ; MemWr    ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg2 ; Clock    ;
+; N/A           ; None        ; -4.105 ns ; MemWr    ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg3 ; Clock    ;
+; N/A           ; None        ; -4.105 ns ; MemWr    ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg4 ; Clock    ;
+; N/A           ; None        ; -4.106 ns ; MemWr    ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~porta_datain_reg0  ; Clock    ;
+; N/A           ; None        ; -4.106 ns ; MemWr    ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~porta_address_reg0 ; Clock    ;
+; N/A           ; None        ; -4.106 ns ; MemWr    ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~porta_address_reg1 ; Clock    ;
+; N/A           ; None        ; -4.106 ns ; MemWr    ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~porta_address_reg2 ; Clock    ;
+; N/A           ; None        ; -4.106 ns ; MemWr    ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~porta_address_reg3 ; Clock    ;
+; N/A           ; None        ; -4.106 ns ; MemWr    ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~porta_address_reg4 ; Clock    ;
+; N/A           ; None        ; -4.106 ns ; MemWr    ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~porta_datain_reg1  ; Clock    ;
+; N/A           ; None        ; -4.106 ns ; MemWr    ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~porta_datain_reg2  ; Clock    ;
+; N/A           ; None        ; -4.106 ns ; MemWr    ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~porta_datain_reg3  ; Clock    ;
+; N/A           ; None        ; -4.106 ns ; MemWr    ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~porta_datain_reg4  ; Clock    ;
+; N/A           ; None        ; -4.106 ns ; MemWr    ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~porta_datain_reg5  ; Clock    ;
+; N/A           ; None        ; -4.106 ns ; MemWr    ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~porta_datain_reg6  ; Clock    ;
+; N/A           ; None        ; -4.106 ns ; MemWr    ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~porta_datain_reg7  ; Clock    ;
+; N/A           ; None        ; -4.131 ns ; Asel[0]  ; nBitsRegister:Areg|Q[5]                                                                         ; Clock    ;
+; N/A           ; None        ; -4.136 ns ; Asel[0]  ; nBitsRegister:Areg|Q[6]                                                                         ; Clock    ;
+; N/A           ; None        ; -4.229 ns ; Asel[0]  ; nBitsRegister:Areg|Q[0]                                                                         ; Clock    ;
+; N/A           ; None        ; -4.231 ns ; Asel[0]  ; nBitsRegister:Areg|Q[4]                                                                         ; Clock    ;
+; N/A           ; None        ; -4.235 ns ; Asel[0]  ; nBitsRegister:Areg|Q[1]                                                                         ; Clock    ;
+; N/A           ; None        ; -4.235 ns ; Asel[0]  ; nBitsRegister:Areg|Q[2]                                                                         ; Clock    ;
+; N/A           ; None        ; -4.242 ns ; Asel[1]  ; nBitsRegister:Areg|Q[0]                                                                         ; Clock    ;
+; N/A           ; None        ; -4.242 ns ; Asel[0]  ; nBitsRegister:Areg|Q[3]                                                                         ; Clock    ;
+; N/A           ; None        ; -4.243 ns ; Asel[1]  ; nBitsRegister:Areg|Q[1]                                                                         ; Clock    ;
+; N/A           ; None        ; -4.276 ns ; Aload    ; nBitsRegister:Areg|Q[0]                                                                         ; Clock    ;
+; N/A           ; None        ; -4.276 ns ; Aload    ; nBitsRegister:Areg|Q[1]                                                                         ; Clock    ;
+; N/A           ; None        ; -4.276 ns ; Aload    ; nBitsRegister:Areg|Q[2]                                                                         ; Clock    ;
+; N/A           ; None        ; -4.276 ns ; Aload    ; nBitsRegister:Areg|Q[3]                                                                         ; Clock    ;
+; N/A           ; None        ; -4.276 ns ; Aload    ; nBitsRegister:Areg|Q[4]                                                                         ; Clock    ;
+; N/A           ; None        ; -4.276 ns ; Aload    ; nBitsRegister:Areg|Q[7]                                                                         ; Clock    ;
+; N/A           ; None        ; -4.314 ns ; Input[0] ; nBitsRegister:Areg|Q[0]                                                                         ; Clock    ;
+; N/A           ; None        ; -4.316 ns ; Meminst  ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg3 ; Clock    ;
+; N/A           ; None        ; -4.333 ns ; Meminst  ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg0 ; Clock    ;
+; N/A           ; None        ; -4.336 ns ; Meminst  ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg1 ; Clock    ;
+; N/A           ; None        ; -4.336 ns ; Meminst  ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg2 ; Clock    ;
+; N/A           ; None        ; -4.343 ns ; Meminst  ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg4 ; Clock    ;
+; N/A           ; None        ; -4.352 ns ; Meminst  ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~porta_address_reg3 ; Clock    ;
+; N/A           ; None        ; -4.369 ns ; Meminst  ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~porta_address_reg0 ; Clock    ;
+; N/A           ; None        ; -4.372 ns ; Meminst  ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~porta_address_reg1 ; Clock    ;
+; N/A           ; None        ; -4.372 ns ; Meminst  ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~porta_address_reg2 ; Clock    ;
+; N/A           ; None        ; -4.379 ns ; Meminst  ; RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~porta_address_reg4 ; Clock    ;
+; N/A           ; None        ; -4.410 ns ; Asel[1]  ; nBitsRegister:Areg|Q[2]                                                                         ; Clock    ;
+; N/A           ; None        ; -4.411 ns ; Asel[1]  ; nBitsRegister:Areg|Q[4]                                                                         ; Clock    ;
+; N/A           ; None        ; -4.414 ns ; Asel[1]  ; nBitsRegister:Areg|Q[3]                                                                         ; Clock    ;
+; N/A           ; None        ; -4.462 ns ; Asel[0]  ; nBitsRegister:Areg|Q[7]                                                                         ; Clock    ;
+; N/A           ; None        ; -4.485 ns ; Asel[1]  ; nBitsRegister:Areg|Q[7]                                                                         ; Clock    ;
+; N/A           ; None        ; -4.917 ns ; Aload    ; nBitsRegister:Areg|Q[5]                                                                         ; Clock    ;
+; N/A           ; None        ; -4.917 ns ; Aload    ; nBitsRegister:Areg|Q[6]                                                                         ; Clock    ;
+; N/A           ; None        ; -5.435 ns ; Sub      ; nBitsRegister:Areg|Q[7]                                                                         ; Clock    ;
+; N/A           ; None        ; -5.633 ns ; Sub      ; nBitsRegister:Areg|Q[0]                                                                         ; Clock    ;
+; N/A           ; None        ; -5.710 ns ; Sub      ; nBitsRegister:Areg|Q[1]                                                                         ; Clock    ;
+; N/A           ; None        ; -5.865 ns ; Sub      ; nBitsRegister:Areg|Q[5]                                                                         ; Clock    ;
+; N/A           ; None        ; -5.874 ns ; Sub      ; nBitsRegister:Areg|Q[2]                                                                         ; Clock    ;
+; N/A           ; None        ; -5.963 ns ; Sub      ; nBitsRegister:Areg|Q[3]                                                                         ; Clock    ;
+; N/A           ; None        ; -6.056 ns ; Sub      ; nBitsRegister:Areg|Q[6]                                                                         ; Clock    ;
+; N/A           ; None        ; -6.073 ns ; Sub      ; nBitsRegister:Areg|Q[4]                                                                         ; Clock    ;
++---------------+-------------+-----------+----------+-------------------------------------------------------------------------------------------------+----------+
+
+
++--------------------------+
+; Timing Analyzer Messages ;
++--------------------------+
+Info: *******************************************************************
+Info: Running Quartus II Classic Timing Analyzer
+    Info: Version 8.1 Build 163 10/28/2008 SJ Web Edition
+    Info: Processing started: Wed Nov 18 01:28:50 2015
+Info: Command: quartus_tan --read_settings_files=off --write_settings_files=off DP -c DP --timing_analysis_only
+Warning: Found pins functioning as undefined clocks and/or memory enables
+    Info: Assuming node "Clock" is an undefined clock
+Info: Clock "Clock" has Internal fmax of 130.99 MHz between source memory "RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg0" and destination register "nBitsRegister:Areg|Q[4]" (period= 7.634 ns)
+    Info: + Longest memory to register delay is 7.318 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = M4K_X41_Y12; Fanout = 8; MEM Node = 'RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg0'
+        Info: 2: + IC(0.000 ns) + CELL(3.374 ns) = 3.374 ns; Loc. = M4K_X41_Y12; Fanout = 3; MEM Node = 'RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|q_b[3]'
+        Info: 3: + IC(0.515 ns) + CELL(0.178 ns) = 4.067 ns; Loc. = LCCOMB_X42_Y12_N20; Fanout = 2; COMB Node = 'SubOrAdd:SubAdd|Add0~789'
+        Info: 4: + IC(0.837 ns) + CELL(0.495 ns) = 5.399 ns; Loc. = LCCOMB_X40_Y12_N10; Fanout = 2; COMB Node = 'SubOrAdd:SubAdd|Add0~797'
+        Info: 5: + IC(0.000 ns) + CELL(0.458 ns) = 5.857 ns; Loc. = LCCOMB_X40_Y12_N12; Fanout = 1; COMB Node = 'SubOrAdd:SubAdd|Add0~798'
+        Info: 6: + IC(0.571 ns) + CELL(0.322 ns) = 6.750 ns; Loc. = LCCOMB_X39_Y12_N0; Fanout = 1; COMB Node = 'SubOrAdd:SubAdd|Add0~812'
+        Info: 7: + IC(0.294 ns) + CELL(0.178 ns) = 7.222 ns; Loc. = LCCOMB_X39_Y12_N6; Fanout = 1; COMB Node = 'SubOrAdd:SubAdd|Add0~813'
+        Info: 8: + IC(0.000 ns) + CELL(0.096 ns) = 7.318 ns; Loc. = LCFF_X39_Y12_N7; Fanout = 5; REG Node = 'nBitsRegister:Areg|Q[4]'
+        Info: Total cell delay = 5.101 ns ( 69.70 % )
+        Info: Total interconnect delay = 2.217 ns ( 30.30 % )
+    Info: - Smallest clock skew is -0.120 ns
+        Info: + Shortest clock path from clock "Clock" to destination register is 2.858 ns
+            Info: 1: + IC(0.000 ns) + CELL(1.026 ns) = 1.026 ns; Loc. = PIN_M1; Fanout = 1; CLK Node = 'Clock'
+            Info: 2: + IC(0.238 ns) + CELL(0.000 ns) = 1.264 ns; Loc. = CLKCTRL_G3; Fanout = 48; COMB Node = 'Clock~clkctrl'
+            Info: 3: + IC(0.992 ns) + CELL(0.602 ns) = 2.858 ns; Loc. = LCFF_X39_Y12_N7; Fanout = 5; REG Node = 'nBitsRegister:Areg|Q[4]'
+            Info: Total cell delay = 1.628 ns ( 56.96 % )
+            Info: Total interconnect delay = 1.230 ns ( 43.04 % )
+        Info: - Longest clock path from clock "Clock" to source memory is 2.978 ns
+            Info: 1: + IC(0.000 ns) + CELL(1.026 ns) = 1.026 ns; Loc. = PIN_M1; Fanout = 1; CLK Node = 'Clock'
+            Info: 2: + IC(0.238 ns) + CELL(0.000 ns) = 1.264 ns; Loc. = CLKCTRL_G3; Fanout = 48; COMB Node = 'Clock~clkctrl'
+            Info: 3: + IC(0.931 ns) + CELL(0.783 ns) = 2.978 ns; Loc. = M4K_X41_Y12; Fanout = 8; MEM Node = 'RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~portb_address_reg0'
+            Info: Total cell delay = 1.809 ns ( 60.75 % )
+            Info: Total interconnect delay = 1.169 ns ( 39.25 % )
+    Info: + Micro clock to output delay of source is 0.234 ns
+    Info: + Micro setup delay of destination is -0.038 ns
+Info: tsu for register "nBitsRegister:Areg|Q[4]" (data pin = "Sub", clock pin = "Clock") is 7.122 ns
+    Info: + Longest pin to register delay is 10.018 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.864 ns) = 0.864 ns; Loc. = PIN_N21; Fanout = 9; PIN Node = 'Sub'
+        Info: 2: + IC(5.581 ns) + CELL(0.322 ns) = 6.767 ns; Loc. = LCCOMB_X42_Y12_N20; Fanout = 2; COMB Node = 'SubOrAdd:SubAdd|Add0~789'
+        Info: 3: + IC(0.837 ns) + CELL(0.495 ns) = 8.099 ns; Loc. = LCCOMB_X40_Y12_N10; Fanout = 2; COMB Node = 'SubOrAdd:SubAdd|Add0~797'
+        Info: 4: + IC(0.000 ns) + CELL(0.458 ns) = 8.557 ns; Loc. = LCCOMB_X40_Y12_N12; Fanout = 1; COMB Node = 'SubOrAdd:SubAdd|Add0~798'
+        Info: 5: + IC(0.571 ns) + CELL(0.322 ns) = 9.450 ns; Loc. = LCCOMB_X39_Y12_N0; Fanout = 1; COMB Node = 'SubOrAdd:SubAdd|Add0~812'
+        Info: 6: + IC(0.294 ns) + CELL(0.178 ns) = 9.922 ns; Loc. = LCCOMB_X39_Y12_N6; Fanout = 1; COMB Node = 'SubOrAdd:SubAdd|Add0~813'
+        Info: 7: + IC(0.000 ns) + CELL(0.096 ns) = 10.018 ns; Loc. = LCFF_X39_Y12_N7; Fanout = 5; REG Node = 'nBitsRegister:Areg|Q[4]'
+        Info: Total cell delay = 2.735 ns ( 27.30 % )
+        Info: Total interconnect delay = 7.283 ns ( 72.70 % )
+    Info: + Micro setup delay of destination is -0.038 ns
+    Info: - Shortest clock path from clock "Clock" to destination register is 2.858 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.026 ns) = 1.026 ns; Loc. = PIN_M1; Fanout = 1; CLK Node = 'Clock'
+        Info: 2: + IC(0.238 ns) + CELL(0.000 ns) = 1.264 ns; Loc. = CLKCTRL_G3; Fanout = 48; COMB Node = 'Clock~clkctrl'
+        Info: 3: + IC(0.992 ns) + CELL(0.602 ns) = 2.858 ns; Loc. = LCFF_X39_Y12_N7; Fanout = 5; REG Node = 'nBitsRegister:Areg|Q[4]'
+        Info: Total cell delay = 1.628 ns ( 56.96 % )
+        Info: Total interconnect delay = 1.230 ns ( 43.04 % )
+Info: tco from clock "Clock" to destination pin "Aeq0" through register "nBitsRegister:Areg|Q[4]" is 9.414 ns
+    Info: + Longest clock path from clock "Clock" to source register is 2.858 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.026 ns) = 1.026 ns; Loc. = PIN_M1; Fanout = 1; CLK Node = 'Clock'
+        Info: 2: + IC(0.238 ns) + CELL(0.000 ns) = 1.264 ns; Loc. = CLKCTRL_G3; Fanout = 48; COMB Node = 'Clock~clkctrl'
+        Info: 3: + IC(0.992 ns) + CELL(0.602 ns) = 2.858 ns; Loc. = LCFF_X39_Y12_N7; Fanout = 5; REG Node = 'nBitsRegister:Areg|Q[4]'
+        Info: Total cell delay = 1.628 ns ( 56.96 % )
+        Info: Total interconnect delay = 1.230 ns ( 43.04 % )
+    Info: + Micro clock to output delay of source is 0.277 ns
+    Info: + Longest register to pin delay is 6.279 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LCFF_X39_Y12_N7; Fanout = 5; REG Node = 'nBitsRegister:Areg|Q[4]'
+        Info: 2: + IC(0.390 ns) + CELL(0.545 ns) = 0.935 ns; Loc. = LCCOMB_X39_Y12_N22; Fanout = 1; COMB Node = 'WideNor0~96'
+        Info: 3: + IC(0.297 ns) + CELL(0.521 ns) = 1.753 ns; Loc. = LCCOMB_X39_Y12_N24; Fanout = 1; COMB Node = 'WideNor0'
+        Info: 4: + IC(1.696 ns) + CELL(2.830 ns) = 6.279 ns; Loc. = PIN_H19; Fanout = 0; PIN Node = 'Aeq0'
+        Info: Total cell delay = 3.896 ns ( 62.05 % )
+        Info: Total interconnect delay = 2.383 ns ( 37.95 % )
+Info: th for memory "RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~porta_we_reg" (data pin = "MemWr", clock pin = "Clock") is -3.745 ns
+    Info: + Longest clock path from clock "Clock" to destination memory is 2.942 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.026 ns) = 1.026 ns; Loc. = PIN_M1; Fanout = 1; CLK Node = 'Clock'
+        Info: 2: + IC(0.238 ns) + CELL(0.000 ns) = 1.264 ns; Loc. = CLKCTRL_G3; Fanout = 48; COMB Node = 'Clock~clkctrl'
+        Info: 3: + IC(0.931 ns) + CELL(0.747 ns) = 2.942 ns; Loc. = M4K_X41_Y12; Fanout = 0; MEM Node = 'RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~porta_we_reg'
+        Info: Total cell delay = 1.773 ns ( 60.27 % )
+        Info: Total interconnect delay = 1.169 ns ( 39.73 % )
+    Info: + Micro hold delay of destination is 0.250 ns
+    Info: - Shortest pin to memory delay is 6.937 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.834 ns) = 0.834 ns; Loc. = PIN_M19; Fanout = 20; PIN Node = 'MemWr'
+        Info: 2: + IC(5.757 ns) + CELL(0.346 ns) = 6.937 ns; Loc. = M4K_X41_Y12; Fanout = 0; MEM Node = 'RAM32x8:RAM|altsyncram:Mem_rtl_0|altsyncram_tif1:auto_generated|ram_block1a0~porta_we_reg'
+        Info: Total cell delay = 1.180 ns ( 17.01 % )
+        Info: Total interconnect delay = 5.757 ns ( 82.99 % )
+Info: Quartus II Classic Timing Analyzer was successful. 0 errors, 1 warning
+    Info: Peak virtual memory: 180 megabytes
+    Info: Processing ended: Wed Nov 18 01:28:51 2015
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:00
+
+

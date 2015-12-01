@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Wed Nov 18 01:28:43 2015
+Quartus II Version : 8.1 Build 163 10/28/2008 SJ Web Edition
+Revision Name : DP
+Top-level Entity Name : DP
+Family : Cyclone II
+Total logic elements : 46
+    Total combinational functions : 46
+    Dedicated logic registers : 21
+Total registers : 21
+Total pins : 33
+Total virtual pins : 0
+Total memory bits : 256
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0
