@@ -9,8 +9,6 @@ module DP_tb();
    wire Apos;
    wire [7:0]Output;
    wire [2:0]IR;
-   wire [4:0]MeminstOut;
-   wire [7:0]RAMout;
    
    integer i=0;
    
@@ -33,22 +31,21 @@ module DP_tb();
   task inputData;
     input [7:0]inData;
     begin
+      
        @(negedge Clock) Input=inData;Asel=2'b01;Aload=1;
        @(negedge Clock); 
        Aload=0;
-       // $display("Output=%b.",Output);
     end
   endtask
  
  
   task storingData();
     begin
-     for(i=0;i<6;i=i+1)
-      begin
+      i=i+1;
        //register A testing
        @(negedge Clock) Input={$random};Asel=2'b01;Aload=1;
        @(negedge Clock); 
-       $display("Input=>\tAt time %0d\tps:\t\tIR=%b\tOutput=%b",$time,IR,Output);
+       $display("Input=>\tAt time %0dps:\tInput=%b\tOutput=%b",$time,Input,Output);
        Aload=0;
       
        //PC register, IR register, RAM testing 
@@ -58,41 +55,93 @@ module DP_tb();
        @(negedge Clock) IRload=1;
         
        @(negedge Clock); 
-       $display("store=>\tAt time %0d\tps:\t\tIR=%b\tOutput=%b\n",$time,IR,Output);
+       $display("store=>\tAt time %0dps:\tIR=%b\t\tStored at add:%b\n",$time,IR,i[4:0]);
        IRload=0;
-      end 
+       
   end
   endtask 
 
   task jpos();
     begin
-      @(negedge Clock) inputData(8'b01001001);
-      $display("Input=>\tAt time %0d\tps:\t\tIR=%b\tOutput=%b",$time,IR,Output);
+      i=i+1;
+      @(negedge Clock) inputData(8'b01000010);
+      $display("Input=>\tAt time %0dps:\tInput=%b\tOutput=%b",$time,Input,Output);
       @(negedge Clock) PCload=1;
       @(negedge Clock) MemWr=1;PCload=0;
       @(negedge Clock) MemWr=0;  
       @(negedge Clock) IRload=1;
       @(negedge Clock);
-      $display("store=>\tAt time %0d\tps:\t\tIR=%b\tOutput=%b",$time,IR,Output);
+      $display("store=>\tAt time %0dps:\tIR=%b\t\tStored at add:%b",$time,IR,i[4:0]);
       @(negedge Clock) JMPmux=1;PCload=1;
-      @(negedge Clock); //one clk cycle to load the PC
-      @(negedge Clock); //one clk cycle to read data from RAM
+      @(negedge Clock)  //one clk cycle to load the PC
+      @(negedge Clock)  PCload=0; //one clk cycle to read data from RAM 
       @(negedge Clock); //one clk cycle to load the IR
-      @(negedge Clock); $display("jpos=>\tAt time %0d\tps:\t\tIR=%b\tOutput=%b",$time,IR,Output);    
+      @(negedge Clock); $display("jpos=>\tAt time %0dps:\tIR=%b\t\tjmp to add:%b\n",$time,IR,Input[4:0]); 
     end
   endtask  
   
+  task add();
+    begin
+      @(negedge Clock) inputData(8'b00000001);
+       
+      $display("Input=>\tAt time %0dps:\tInput=%b\tOutput=%b\t",$time,Input,Output);
+      @(negedge Clock) Asel=2'b00;
+      @(negedge Clock) Aload=1;
+      @(negedge Clock); $display("Add=>\t\tAt time %0dps:\tOutput=%b\n",$time,Output);
+      Aload=0;
+    end
+  endtask
+   
+  task sub();
+    begin
+      @(negedge Clock) inputData(8'b11111111);
+       
+      $display("Input=>\tAt time %0dps:\tInput=%b\tOutput=%b\t",$time,Input,Output);
+      @(negedge Clock) Asel=2'b00;Sub=1;
+      @(negedge Clock) Aload=1;
+      @(negedge Clock); $display("Sub=>\t\tAt time %0dps:\tOutput=%b\n",$time,Output);
+      Aload=0;Sub=0;
+    end
+  endtask
+     
+  task start();
+    begin
+     {Input,IRload,JMPmux,PCload,Meminst,MemWr,Aload,Sub,Halt,Asel}=0;
+     @(negedge Clock) $display("start=>\tAt time %0dps:\tInput=%b\tIR=%b\tOutput=%b\n",$time,Input,IR,Output);
+    end
+   endtask  
+  
+  task fetch();
+    begin
+      IRload=1;PCload=1;
+      @(negedge Clock) $display("fetch=>\tAt time %0dps:\tInput=%b\tIR=%b\tOutput=%b\n",$time,Input,IR,Output);
+    end
+  endtask
+  
+  task decode();
+    begin
+      Meminst=1;
+      repeat (2) @(negedge Clock) $display("decode=>\tAt time %0dps:\tInput=%b\tIR=%b\tOutput=%b\n",$time,Input,IR,Output);
+    end
+  endtask
+  
   initial 
    begin
-   {Input,IRload,JMPmux,PCload,Meminst,MemWr,Aload,Sub,Halt,Asel}=0;
-   repeat (2) @(negedge Clock);
-   storingData();
-   jpos();
-   
-   
- end
-  DP testDP(Reset,Clock,Input,IRload,JMPmux,PCload,Meminst,MemWr,Aload,Sub,Halt,Asel,Aeq0,Apos,Output,IR,MeminstOut,RAMout);
-   
+    start();
+    storingData();
+    storingData();
+    storingData();
+    add();
+    sub();
+    jpos();
+    start();
+    fetch();
+    decode();
+    
+   end
+  
+  DP testDP(Reset,Clock,Input,IRload,JMPmux,PCload,Meminst,MemWr,Aload,Sub,Halt,Asel,Aeq0,Apos,Output,IR);
+  
 endmodule
    
    

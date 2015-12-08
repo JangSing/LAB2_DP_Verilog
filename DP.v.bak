@@ -7,8 +7,8 @@ module DP(
    output Apos,
    output [7:0]Output,
    output [2:0]IR,
-   output [4:0]MeminstOut,
-   output [7:0]RAMout
+   output [7:0]RAMout,
+   output [4:0]MeminstOut
    );
    
    

@@ -4,7 +4,7 @@ module Multiplexer4to1(
   output reg  [7:0]out
   );
   
-  always@(in0,in1,in2,in3)
+  always@(in0,in1,in2,in3,Asel)
   begin
     case(Asel)
       2'b00:  out=in0;
